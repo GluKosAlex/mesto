@@ -9,13 +9,96 @@
 <body class="page">
   <div class="page__wrapper">
 
-    <header class="header wrapper"></header>
+    <header class="header">
+      <img class="header__logo" src="./images/logo.svg" alt="Логотип сайта Mesto Russia">
+    </header>
 
-    <main class="content page__content"></main>
+    <main class="content page__content">
 
-    <footer class="footer wrapper"></footer>
+      <section class="profile">
+
+        <figure class="profile__figure">
+          <picture class="profile__avatar">
+            <img class="profile__avatar-image" src="./images/Avatar@1x.jpg" srcset="./images/Avatar@2x.jpg 2x" alt="Фотография пользователя">
+          </picture>
+          <figcaption class="profile__info">
+            <h1 class="profile__username">Жак-Ив Кусто</h1>
+            <p class="profile__desc">Исследователь океана</p>
+            <button class="profile__edit">Редактировать профиль</button>
+          </figcaption>
+        </figure>
+
+        <button class="profile__add-btn">Добавить пост</button>
+
+      </section>
+
+      <section class="elements">
+
+        <ul class="elements__list">
+          <li class="elements__item">
+
+            <article class="element">
+              <img src="images/kirill-pershin-1088404-unsplash.jpg" alt="Фото старинной каменной постройки в горах" class="element__image">
+              <h2 class="element__title">Карачаевск</h2>
+              <label class="element__like">
+                <input type="checkbox" class="element__like-btn">
+              </label>
+            </article>
+
+            <article class="element">
+              <img src="images/kirill-pershin-1404681-unsplash.jpg" alt="Фото пейзажа с горой Эльбрус вдали на закате" class="element__image">
+              <h2 class="element__title">Гора Эльбрус</h2>
+              <label class="element__like">
+                <input type="checkbox" class="element__like-btn">
+              </label>
+            </article>
+
+            <article class="element">
+              <img src="images/kirill-pershin-1556355-unsplash.jpg" alt="Фото заснеженных гор и леса" class="element__image">
+              <h2 class="element__title">Домбай</h2>
+              <label class="element__like">
+                <input type="checkbox" class="element__like-btn">
+              </label>
+            </article>
+
+            <article class="element">
+              <img src="images/gleb-lucky-7SF0nk9ddbY-unsplash.jpg" alt="Фото стоящего на скале человека спиной к зрителю на фоне горы Эльбрус" class="element__image">
+              <h2 class="element__title">Гора Эльбрус</h2>
+              <label class="element__like">
+                <input type="checkbox" class="element__like-btn">
+              </label>
+            </article>
+
+            <article class="element">
+              <img src="images/evgeny-ndn-L1sJAaT4b78-unsplash.jpg" alt="Фото заснеженных гор" class="element__image">
+              <h2 class="element__title">Домбай</h2>
+              <label class="element__like">
+                <input type="checkbox" class="element__like-btn">
+              </label>
+            </article>
+
+            <article class="element">
+              <img src="images/dmitry-tur-5sPYYR6lG28-unsplash.jpg" alt="Фото церкви в горах" class="element__image">
+              <h2 class="element__title">Карачаево-Черкесия</h2>
+              <label class="element__like">
+                <input type="checkbox" class="element__like-btn">
+              </label>
+            </article>
+
+          </li>
+        </ul>
+
+      </section>
+
+    </main>
+
+    <footer class="footer">
+      <a href="https://glukosalex.ru" class="footer__copyrigth" target="_blank">© 2023. Глушенков&nbsp;Константин</a>
+    </footer>
 
   </div>
+
   <script src="./pages/index.js"></script>
+
 </body>
 </html>
