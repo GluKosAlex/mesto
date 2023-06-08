@@ -1,3 +1,4 @@
 .element__image-wrapper {
-
+  display: flex;
+  height: 282px;
 }

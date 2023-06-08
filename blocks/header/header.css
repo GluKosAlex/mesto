@@ -1,3 +1,13 @@
 .header {
-  
+  display: flex;
+
+  padding-bottom: 32px;
+
+  border-bottom: 1px solid var(--main-text-mid-color);
+}
+
+@media screen and (min-width: 619px) {
+  .header {
+    padding-bottom: 41px;
+  }
 }

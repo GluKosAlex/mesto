@@ -3,14 +3,8 @@
   padding-right: var(--main-padding-size);
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 619px) {
   .wrapper {
-    --main-padding-size: 28px;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .wrapper {
-    --main-padding-size: 45px;
+    --main-padding-size: 0;
   }
 }

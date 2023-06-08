@@ -9,9 +9,17 @@
   margin: 0 auto;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 619px) {
   .page__wrapper {
+    padding-left: var(--main-padding-size);
+    padding-right: var(--main-padding-size);
     padding-top: 45px;
-    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .page__wrapper {
+    --main-padding-size: 45px;
   }
 }
