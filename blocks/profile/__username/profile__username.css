@@ -9,3 +9,10 @@
   white-space: nowrap;
   overflow: hidden;
 }
+
+@media screen and (min-width: 920px) {
+  .profile__username {
+    font-size: 42px;
+  }
+}
+

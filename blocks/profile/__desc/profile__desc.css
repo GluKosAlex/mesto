@@ -7,3 +7,9 @@
   white-space: nowrap;
   overflow: hidden;
 }
+
+@media screen and (min-width: 619px) {
+  .profile__desc {
+    font-size: 18px;
+  }
+}

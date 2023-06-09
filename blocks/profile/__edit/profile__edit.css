@@ -23,10 +23,12 @@
   opacity: .6;
 }
 
-@media screen and (min-width: 619px) {
+@media screen and (min-width: 920px) {
   .profile__edit {
     width: 24px;
     height: 24px;
+    top: 16px;
+    right: -42px;
 
     background-size: 10px;
   }

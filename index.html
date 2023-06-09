@@ -9,7 +9,7 @@
 <body class="page">
   <div class="page__wrapper">
 
-    <header class="header page__header wrapper">
+    <header class="header wrapper">
       <img class="header__logo" src="./images/logo.svg" alt="Логотип сайта Mesto Russia">
     </header>
 
@@ -19,7 +19,7 @@
 
         <figure class="profile__figure">
           <picture class="profile__avatar">
-            <img class="profile__avatar-image" src="./images/Avatar@1x.jpg" srcset="./images/Avatar@2x.jpg 2x" alt="Фотография пользователя">
+            <img src="./images/Avatar@1x.jpg" srcset="./images/Avatar@2x.jpg 2x" alt="Фотография пользователя">
           </picture>
           <figcaption class="profile__info">
             <h1 class="profile__username">Жак-Ив Кусто</h1>
@@ -125,14 +125,17 @@
       </section>
 
       <section class="modal modal_show">
-        <form class="modal__content form" action="" method="post">
-          <fieldset class="form__wrapper">
-            <legend class="form__title">Редактировать профиль</legend>
-            <input class="form__text-input" type="text" name="username" value="Жак-Ив Кусто">
-            <input class="form__text-input" type="text" name="desc" value="Исследователь океана">
-            <input class="form__button" type="submit" value="Сохранить">
-          </fieldset>
-        </form>
+        <div class="modal__content">
+          <form class="form" action="" method="post">
+            <fieldset class="form__wrapper">
+              <legend class="form__title">Редактировать профиль</legend>
+              <input class="form__text-input" type="text" name="username" value="Жак-Ив Кусто">
+              <input class="form__text-input" type="text" name="desc" value="Исследователь океана">
+              <input class="form__button" type="submit" value="Сохранить">
+            </fieldset>
+          </form>
+          <button type="button" class="modal__close"></button>
+        </div>
       </section>
 
     </main>
