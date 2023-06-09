@@ -1,3 +1,23 @@
 .element__like {
+  width: 22px;
+  height: 19px;
 
+  background-image: url(./../../../images/icon-like--disabled.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
+  cursor: pointer;
+  transition: opacity .2s ease;
+}
+
+.element__like:hover,
+.element__like:focus {
+  opacity: .5;
+}
+
+/* Not supported in Firefox by default, but can be enabled. Supported in Firefox behind the layout.css.has-selector.enabled flag */
+/* TODO: Realize it in JS */
+.element__like:has(> .element__like-btn:checked) {
+  background-image: url(./../../../images/icon-like--active.svg);
 }

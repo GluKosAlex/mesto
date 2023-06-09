@@ -13,6 +13,7 @@
   background-color: transparent;
   background-size: 7.5px;
   cursor: pointer;
+  transition: opacity .2s ease;
 }
 
 .profile__add-btn::before,
@@ -36,4 +37,9 @@
 .profile__add-btn::after {
   width: 16px;
   height: 2px;
+}
+
+.profile__add-btn:hover,
+.profile__add-btn:focus {
+  opacity: .6;
 }
