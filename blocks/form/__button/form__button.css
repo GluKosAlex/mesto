@@ -1,0 +1,17 @@
+.form__button {
+  margin-top: 45px;
+
+  line-height: 46px;
+  border: 0;
+  border-radius: 0;
+  background-color: rgba(0, 0, 0, 1);
+  color: var(--main-text-color);
+  cursor: pointer;
+}
+
+
+.form__button:hover,
+.form__button:focus {
+  outline: 0;
+  background-color: rgba(0, 0, 0, .8);
+}

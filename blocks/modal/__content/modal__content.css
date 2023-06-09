@@ -1,0 +1,5 @@
+.modal__content {
+  padding: 25px 22px;
+  background-color: var(--main-text-color);
+  border-radius: 10px;
+}
