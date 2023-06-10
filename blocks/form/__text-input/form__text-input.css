@@ -13,6 +13,12 @@
   margin-top: 75px;
 }
 
+/* Change default focus decoration */
+.form__text-input:focus {
+  outline: 0;
+  border-color: rgba(0, 0, 0, 1);
+}
+
 @media screen and (min-width: 619px) {
   .form__text-input:first-of-type {
     margin-top: 49px;
