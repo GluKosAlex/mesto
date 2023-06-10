@@ -13,6 +13,7 @@
     text-align: left;
   }
 }
+
 @media screen and (min-width: 920px) {
   .profile__info {
     max-width: 500px;
