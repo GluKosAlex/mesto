@@ -5,7 +5,7 @@
 
 /* Global */
 
-@import url(./../blocks/variables/variables.css);
+@import url(./../variables/variables.css);
 
 /* Blocks */
 
@@ -22,37 +22,34 @@
 @import url(./../blocks/content/content.css);
 
 @import url(./../blocks/profile/profile.css);
-@import url(./../blocks/profile/__figure/profile__figure.css);
+@import url(./../blocks/profile/__wrap/profile__wrap.css);
 @import url(./../blocks/profile/__avatar/profile__avatar.css);
 @import url(./../blocks/profile/__info/profile__info.css);
 @import url(./../blocks/profile/__name-wrap/profile__name-wrap.css);
 @import url(./../blocks/profile/__username/profile__username.css);
-@import url(./../blocks/profile/__desc/profile__desc.css);
+@import url(./../blocks/profile/__about/profile__about.css);
 @import url(./../blocks/profile/__edit/profile__edit.css);
 @import url(./../blocks/profile/__add-btn/profile__add-btn.css);
 
 @import url(./../blocks/elements/elements.css);
-@import url(./../blocks/elements/__list/elements__list.css);
-@import url(./../blocks/elements/__item/elements__item.css);
 
 @import url(./../blocks/element/element.css);
-@import url(./../blocks/element/__image-wrapper/element__image-wrapper.css);
 @import url(./../blocks/element/__image/element__image.css);
 @import url(./../blocks/element/__caption/element__caption.css);
 @import url(./../blocks/element/__title/element__title.css);
 @import url(./../blocks/element/__like/element__like.css);
-@import url(./../blocks/element/__like-btn/element__like-btn.css);
+@import url(./../blocks/element/__like/_active/element__like_active.css);
 
 @import url(./../blocks/footer/footer.css);
-@import url(./../blocks/footer/__copyrigth/footer__copyrigth.css);
+@import url(./../blocks/footer/__copyright/footer__copyright.css);
 
 @import url(./../blocks/modal/modal.css);
-@import url(./../blocks/modal/_show/modal_show.css);
+@import url(./../blocks/modal/_opened/modal_opened.css);
 @import url(./../blocks/modal/__content/modal__content.css);
+@import url(./../blocks/modal/__title/modal__title.css);
 @import url(./../blocks/modal/__close/modal__close.css);
 
 @import url(./../blocks/form/form.css);
 @import url(./../blocks/form/__wrapper/form__wrapper.css);
-@import url(./../blocks/form/__title/form__title.css);
 @import url(./../blocks/form/__text-input/form__text-input.css);
 @import url(./../blocks/form/__button/form__button.css);

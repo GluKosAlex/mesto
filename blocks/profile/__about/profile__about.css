@@ -1,4 +1,4 @@
-.profile__desc {
+.profile__about {
   padding: 0;
   margin: 0;
   padding-top: 8px;
@@ -9,7 +9,7 @@
 }
 
 @media screen and (min-width: 619px) {
-  .profile__desc {
+  .profile__about {
     font-size: 18px;
   }
 }

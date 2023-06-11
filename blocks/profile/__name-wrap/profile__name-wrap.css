@@ -1,6 +1,7 @@
 .profile__name-wrap {
   display: inline-flex;
-  max-width: 100%;
   align-items: center;
   position: relative;
+
+  max-width: 100%;
 }

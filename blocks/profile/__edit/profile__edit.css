@@ -1,4 +1,6 @@
 .profile__edit {
+  flex-shrink: 0;
+
   position: absolute;
   top: 8px;
   right: -28px;
@@ -23,12 +25,19 @@
   opacity: .6;
 }
 
+@media screen and (min-width: 619px) {
+  .profile__edit {
+    position: static;
+    margin-left: 10px;
+  }
+}
+
 @media screen and (min-width: 920px) {
   .profile__edit {
     width: 24px;
     height: 24px;
-    top: 16px;
-    right: -42px;
+    margin-left: 18px;
+    margin-top: 6px;
 
     background-size: 10px;
   }

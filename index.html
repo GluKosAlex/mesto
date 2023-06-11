@@ -17,127 +17,74 @@
 
       <section class="profile">
 
-        <figure class="profile__figure">
-          <picture class="profile__avatar">
-            <img src="./images/Avatar@1x.jpg" srcset="./images/Avatar@2x.jpg 2x" alt="Фотография пользователя">
-          </picture>
-          <figcaption class="profile__info">
+        <div class="profile__wrap">
+          <img class="profile__avatar" src="./images/Avatar@1x.jpg" srcset="./images/Avatar@2x.jpg 2x" alt="Аватарка">
+          <div class="profile__info">
             <div class="profile__name-wrap">
               <h1 class="profile__username">Жак-Ив Кусто</h1>
-              <button type="button" class="profile__edit">Редактировать профиль</button>
+              <button type="button" class="profile__edit" aria-label="Редактировать профиль"></button>
             </div>
-            <p class="profile__desc">Исследователь океана</p>
-          </figcaption>
-        </figure>
-
-        <button type="button" class="profile__add-btn">Добавить пост</button>
+            <p class="profile__about">Исследователь океана</p>
+          </div>
+        </div>
+        <button type="button" class="profile__add-btn" aria-label="Добавить пост"></button>
 
       </section>
 
-      <section class="elements">
+      <section>
 
-        <ul class="elements__list">
+        <ul class="elements">
 
-          <li class="elements__item">
-            <figure class="element">
-              <picture class="element__image-wrapper">
-                <img src="images/kirill-pershin-1088404-unsplash.jpg" alt="Фото старинной каменной постройки в горах" class="element__image">
-              </picture>
-              <figcaption class="element__caption">
-                <h2 class="element__title">Карачаевск</h2>
-                <label class="element__like">
-                  <input type="checkbox" class="element__like-btn">
-                </label>
-              </figcaption>
-            </figure>
+          <li class="element">
+            <img src="images/kirill-pershin-1088404-unsplash.jpg" alt="Старинная каменная постройка в горах" class="element__image">
+            <div class="element__caption">
+              <h2 class="element__title">Карачаевск</h2>
+              <button type="button" class="element__like element__like_active" aria-label="Отметить как понравившееся"></button>
+            </div>
           </li>
 
-          <li class="elements__item">
-            <figure class="element">
-              <picture class="element__image-wrapper">
-                <img src="images/kirill-pershin-1404681-unsplash.jpg" alt="Фото пейзажа с горой Эльбрус вдали на закате" class="element__image">
-              </picture>
-              <figcaption class="element__caption">
-                <h2 class="element__title">Гора Эльбрус</h2>
-                <label class="element__like">
-                  <input type="checkbox" class="element__like-btn">
-                </label>
-              </figcaption>
-            </figure>
+          <li class="element">
+            <img src="images/kirill-pershin-1404681-unsplash.jpg" alt="Пейзаж с горой Эльбрус вдали на закате" class="element__image">
+            <div class="element__caption">
+              <h2 class="element__title">Гора Эльбрус</h2>
+              <button type="button" class="element__like" aria-label="Отметить как понравившееся"></button>
+            </div>
           </li>
 
-          <li class="elements__item">
-            <figure class="element">
-              <picture class="element__image-wrapper">
-                <img src="images/kirill-pershin-1556355-unsplash.jpg" alt="Фото заснеженных гор и леса" class="element__image">
-              </picture>
-              <figcaption class="element__caption">
-                <h2 class="element__title">Домбай</h2>
-                <label class="element__like">
-                  <input type="checkbox" class="element__like-btn">
-                </label>
-              </figcaption>
-            </figure>
+          <li class="element">
+            <img src="images/kirill-pershin-1556355-unsplash.jpg" alt="Заснеженные горы и лес" class="element__image">
+            <div class="element__caption">
+              <h2 class="element__title">Домбай</h2>
+              <button type="button" class="element__like" aria-label="Отметить как понравившееся"></button>
+            </div>
           </li>
 
-          <li class="elements__item">
-            <figure class="element">
-              <picture class="element__image-wrapper">
-                <img src="images/gleb-lucky-7SF0nk9ddbY-unsplash.jpg" alt="Фото стоящего на скале человека спиной к зрителю на фоне горы Эльбрус" class="element__image">
-              </picture>
-              <figcaption class="element__caption">
-                <h2 class="element__title">Гора Эльбрус</h2>
-                <label class="element__like">
-                  <input type="checkbox" class="element__like-btn">
-                </label>
-              </figcaption>
-            </figure>
+          <li class="element">
+            <img src="images/gleb-lucky-7SF0nk9ddbY-unsplash.jpg" alt="Стоящий на скале человека спиной к зрителю на фоне горы Эльбрус" class="element__image">
+            <div class="element__caption">
+              <h2 class="element__title">Гора Эльбрус</h2>
+              <button type="button" class="element__like" aria-label="Отметить как понравившееся"></button>
+            </div>
           </li>
 
-          <li class="elements__item">
-            <figure class="element">
-              <picture class="element__image-wrapper">
-                <img src="images/evgeny-ndn-L1sJAaT4b78-unsplash.jpg" alt="Фото заснеженных гор" class="element__image">
-              </picture>
-              <figcaption class="element__caption">
-                <h2 class="element__title">Домбай</h2>
-                <label class="element__like">
-                  <input type="checkbox" class="element__like-btn">
-                </label>
-              </figcaption>
-            </figure>
+          <li class="element">
+            <img src="images/evgeny-ndn-L1sJAaT4b78-unsplash.jpg" alt="Заснеженные горы" class="element__image">
+            <div class="element__caption">
+              <h2 class="element__title">Домбай</h2>
+              <button type="button" class="element__like" aria-label="Отметить как понравившееся"></button>
+            </div>
           </li>
 
-          <li class="elements__item">
-            <figure class="element">
-              <picture class="element__image-wrapper">
-                <img src="images/dmitry-tur-5sPYYR6lG28-unsplash.jpg" alt="Фото церкви в горах" class="element__image">
-              </picture>
-              <figcaption class="element__caption">
-                <h2 class="element__title">Карачаево-Черкесия</h2>
-                <label class="element__like">
-                  <input type="checkbox" class="element__like-btn">
-                </label>
-              </figcaption>
-            </figure>
+          <li class="element">
+            <img src="images/dmitry-tur-5sPYYR6lG28-unsplash.jpg" alt="Церковь в горах" class="element__image">
+            <div class="element__caption">
+              <h2 class="element__title">Карачаево-Черкесия</h2>
+              <button type="button" class="element__like" aria-label="Отметить как понравившееся"></button>
+            </div>
           </li>
 
         </ul>
 
-      </section>
-
-      <section class="modal">
-        <div class="modal__content">
-          <form class="form" action="#" method="post">
-            <fieldset class="form__wrapper">
-              <legend class="form__title">Редактировать профиль</legend>
-              <input class="form__text-input" type="text" name="username" value="" required>
-              <input class="form__text-input" type="text" name="desc" value="" required>
-              <input class="form__button" type="submit" value="Сохранить">
-            </fieldset>
-          </form>
-          <button type="button" class="modal__close"></button>
-        </div>
       </section>
 
     </main>
@@ -146,9 +93,23 @@
       <a href="https://glukosalex.ru" class="footer__copyright" target="_blank">© 2023. Глушенков&nbsp;Константин</a>
     </footer>
 
+      <div class="modal">
+        <div class="modal__content">
+          <h2 class="modal__title">Редактировать профиль</h2>
+          <form class="form" action="#" name="profile-edit-form" method="post">
+            <fieldset class="form__wrapper">
+              <input class="form__text-input form__text-input_data_username" type="text" name="username" required>
+              <input class="form__text-input form__text-input_data_about" type="text" name="about" required>
+              <button class="form__button" type="submit">Сохранить</button>
+            </fieldset>
+          </form>
+          <button type="button" class="modal__close"></button>
+        </div>
+      </div>
+
   </div>
 
-  <script src="./pages/index.js"></script>
+  <script src="./script/index.js"></script>
 
 </body>
 </html>

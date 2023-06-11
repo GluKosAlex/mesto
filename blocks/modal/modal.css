@@ -9,8 +9,6 @@
   right: 0;
   bottom: 0;
 
-  padding: 19px;
-
   color: var(--main-bg-color);
   background-color: rgba(0, 0, 0, .5);
 }

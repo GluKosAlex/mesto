@@ -1,4 +1,5 @@
 .profile__username {
+  max-width: 226px;
   padding: 0;
   margin: 0;
 
@@ -8,6 +9,12 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+}
+
+@media screen and (min-width: 619px) {
+  .profile__username {
+    max-width: none;
+  }
 }
 
 @media screen and (min-width: 920px) {
