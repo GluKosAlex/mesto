@@ -21,21 +21,20 @@ function openModal() {
 };
 
 // Modal close handler
-function closeModal(evt) {
-  if (evt.target === evt.currentTarget) { // Prevent closing window by click on the child nodes of the 'modal'
-    modal.classList.remove('modal_opened');
-  }
+function closeModal() {
+  modal.classList.remove('modal_opened');
 };
+
+function formSubmitHandler(evt) {
+  evt.preventDefault(); // Prevent form sending
+  profileUserName.textContent = formUsername.value;
+  profileAbout.textContent = formAbout.value;
+  closeModal(); // Close modal after save
+}
 
 // Modal open/close handle
 editBtn.addEventListener('click', openModal);
 closeBtn.addEventListener('click', closeModal);
-modal.addEventListener('click', closeModal);
 
 // Profile info change handle
-form.addEventListener('submit', evt => {
-  evt.preventDefault(); // Prevent form sending
-  profileUserName.textContent = formUsername.value;
-  profileAbout.textContent = formAbout.value;
-  closeModal(evt); // Close modal after save
-});
+form.addEventListener('submit', formSubmitHandler);

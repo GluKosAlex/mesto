@@ -50,6 +50,5 @@
 @import url(./../blocks/modal/__close/modal__close.css);
 
 @import url(./../blocks/form/form.css);
-@import url(./../blocks/form/__wrapper/form__wrapper.css);
 @import url(./../blocks/form/__text-input/form__text-input.css);
 @import url(./../blocks/form/__button/form__button.css);
