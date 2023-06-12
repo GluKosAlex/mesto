@@ -6,7 +6,6 @@ const closeBtn = modal.querySelector('.modal__close');
 const form = modal.querySelector('.form');
 const formUsername = form.querySelector('.form__text-input_data_username');
 const formAbout = form.querySelector('.form__text-input_data_about');
-const formSubmit = form.querySelector('.form__button');
 // Profile search
 const profile = document.querySelector('.profile');
 const profileUserName = profile.querySelector('.profile__username');
