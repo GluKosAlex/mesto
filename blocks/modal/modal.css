@@ -1,5 +1,5 @@
 .modal {
-  display: none;
+  display: flex;
   justify-content: center;
   align-items: center;
 
@@ -11,4 +11,8 @@
 
   color: var(--main-bg-color);
   background-color: rgba(0, 0, 0, .5);
+
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility .3s linear 0s, opacity .3s linear 0s;
 }
