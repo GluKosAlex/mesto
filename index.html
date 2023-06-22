@@ -35,7 +35,7 @@
 
         <ul class="elements">
 
-          <li class="element">
+          <!--<li class="element">
             <img src="images/kirill-pershin-1088404-unsplash.jpg" alt="Старинная каменная постройка в горах" class="element__image">
             <div class="element__caption">
               <h2 class="element__title">Карачаевск</h2>
@@ -73,7 +73,7 @@
               <h2 class="element__title">Домбай</h2>
               <button type="button" class="element__like" aria-label="Отметить как понравившееся"></button>
             </div>
-          </li>
+          </li>-->
 
           <li class="element">
             <img src="images/dmitry-tur-5sPYYR6lG28-unsplash.jpg" alt="Церковь в горах" class="element__image">
@@ -81,6 +81,7 @@
               <h2 class="element__title">Карачаево-Черкесия</h2>
               <button type="button" class="element__like" aria-label="Отметить как понравившееся"></button>
             </div>
+            <button type="button" class="element__delete" aria-label="Удалить пост"></button>
           </li>
 
         </ul>
@@ -104,6 +105,17 @@
           <button type="button" class="modal__close"></button>
         </div>
       </div>
+
+      <template id="element-template">
+        <li class="element">
+          <img src="#" alt="" class="element__image">
+          <div class="element__caption">
+            <h2 class="element__title"></h2>
+            <button type="button" class="element__like" aria-label="Отметить как понравившееся"></button>
+          </div>
+          <button type="button" class="element__delete" aria-label="Удалить пост"></button>
+        </li>
+      </template>
 
   </div>
 
