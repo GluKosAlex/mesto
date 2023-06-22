@@ -94,8 +94,8 @@
       <a href="https://glukosalex.ru" class="footer__copyright" target="_blank">© 2023. Глушенков&nbsp;Константин</a>
     </footer>
 
-      <div class="modal modal_profile-edit">
-        <div class="modal__content">
+      <div class="modal modal_type_profile-edit">
+        <div class="modal__content modal__content_type_form">
           <h2 class="modal__title">Редактировать профиль</h2>
           <form class="form" action="#" name="profile-edit-form" method="post">
             <input class="form__text-input form__text-input_data_username" type="text" name="username" required>
@@ -106,8 +106,8 @@
         </div>
       </div>
 
-      <div class="modal modal_card-add">
-        <div class="modal__content">
+      <div class="modal modal_type_card-add">
+        <div class="modal__content modal__content_type_form">
           <h2 class="modal__title">Новое место</h2>
           <form class="form" action="#" name="profile-edit-form" method="post">
             <input class="form__text-input form__text-input_data_img-title" type="text" name="img-title" placeholder="Название" required>
@@ -116,6 +116,16 @@
           </form>
           <button type="button" class="modal__close"></button>
         </div>
+      </div>
+
+      <div class="modal modal_type_image">
+        <div class="modal__content modal__content_type_image">
+          <figure class="modal__image-wrap">
+            <img src="images/dmitry-tur-5sPYYR6lG28-unsplash.jpg" alt="Церковь в горах" class="modal__image">
+            <figcaption class="modal__image-title">Карачаево-Черкесия</figcaption>
+          </figure>
+          <button type="button" class="modal__close"></button>
+        </d>
       </div>
 
       <template id="element-template">

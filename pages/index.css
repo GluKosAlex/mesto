@@ -47,7 +47,12 @@
 @import url(./../blocks/modal/modal.css);
 @import url(./../blocks/modal/_opened/modal_opened.css);
 @import url(./../blocks/modal/__content/modal__content.css);
+@import url(./../blocks/modal/__content/_type/modal__content_type_form.css);
+@import url(./../blocks/modal/__content/_type/modal__content_type_image.css);
 @import url(./../blocks/modal/__title/modal__title.css);
+@import url(./../blocks/modal/__image-wrap/modal__image-wrap.css);
+@import url(./../blocks/modal/__image/modal__image.css);
+@import url(./../blocks/modal/__image-title/modal__image-title.css);
 @import url(./../blocks/modal/__close/modal__close.css);
 
 @import url(./../blocks/form/form.css);
