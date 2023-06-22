@@ -73,7 +73,7 @@
               <h2 class="element__title">Домбай</h2>
               <button type="button" class="element__like" aria-label="Отметить как понравившееся"></button>
             </div>
-          </li>-->
+          </li>
 
           <li class="element">
             <img src="images/dmitry-tur-5sPYYR6lG28-unsplash.jpg" alt="Церковь в горах" class="element__image">
@@ -82,7 +82,7 @@
               <button type="button" class="element__like" aria-label="Отметить как понравившееся"></button>
             </div>
             <button type="button" class="element__delete" aria-label="Удалить пост"></button>
-          </li>
+          </li>-->
 
         </ul>
 
@@ -94,13 +94,25 @@
       <a href="https://glukosalex.ru" class="footer__copyright" target="_blank">© 2023. Глушенков&nbsp;Константин</a>
     </footer>
 
-      <div class="modal">
+      <div class="modal modal_profile-edit">
         <div class="modal__content">
           <h2 class="modal__title">Редактировать профиль</h2>
           <form class="form" action="#" name="profile-edit-form" method="post">
             <input class="form__text-input form__text-input_data_username" type="text" name="username" required>
             <input class="form__text-input form__text-input_data_about" type="text" name="about" required>
             <button class="form__button" type="submit">Сохранить</button>
+          </form>
+          <button type="button" class="modal__close"></button>
+        </div>
+      </div>
+
+      <div class="modal modal_card-add">
+        <div class="modal__content">
+          <h2 class="modal__title">Новое место</h2>
+          <form class="form" action="#" name="profile-edit-form" method="post">
+            <input class="form__text-input form__text-input_data_img-title" type="text" name="img-title" placeholder="Название" required>
+            <input class="form__text-input form__text-input_data_img-url" type="text" name="img-url" placeholder="Ссылка на картинку" required>
+            <button class="form__button" type="submit">Создать</button>
           </form>
           <button type="button" class="modal__close"></button>
         </div>

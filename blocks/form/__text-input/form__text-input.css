@@ -13,6 +13,10 @@
   margin-top: 75px;
 }
 
+.form__text-input::placeholder {
+  color: #C4C4C4;
+}
+
 /* Change default focus decoration */
 .form__text-input:focus {
   outline: 0;
