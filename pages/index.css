@@ -45,6 +45,7 @@
 @import url(./../blocks/footer/__copyright/footer__copyright.css);
 
 @import url(./../blocks/modal/modal.css);
+@import url(./../blocks/modal/_type/modal_type_image.css);
 @import url(./../blocks/modal/_opened/modal_opened.css);
 @import url(./../blocks/modal/__content/modal__content.css);
 @import url(./../blocks/modal/__content/_type/modal__content_type_form.css);
