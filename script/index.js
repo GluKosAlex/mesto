@@ -89,6 +89,7 @@ function renderCard({name, link}) {
   addClickEventTo(cardImage, () => {
     openImageModal();
     image.src = cardImage.src;
+    image.alt = cardImage.alt;
     imageTitle.textContent = cardTitle.textContent;
   });
 
