@@ -38,6 +38,31 @@ function addClickEventTo(target, handler) {
   target.addEventListener('click', handler);
 }
 
+// Modal open handler
+function openModal(modal) {
+  modal.classList.add('modal_opened');
+};
+
+// Modal close handler
+function closeModal(evt) {
+  evt.target.closest('.modal').classList.remove('modal_opened');
+};
+
+// Add close handler to close buttons
+function addCloseHandlerTo(items) {
+  for (let item of items) {
+    const closeBtn = item.querySelector('.modal__close');
+    addClickEventTo(closeBtn, closeModal);
+  }
+}
+
+// Focus on input handler
+function focusOn(item) {
+  setTimeout(() => {
+    item.focus();
+  }, 100); // Set timeout to prevent problem with visibility modal opening animation
+}
+
 // Card create handler
 function createCard({name, link}) {
   const card = cardTemplate.cloneNode(true);
@@ -82,48 +107,25 @@ function renderCardsFromArray(arr) {
   };
 };
 
-// Focus on input handler
-function focusOn(item) {
-  setTimeout(() => {
-    item.focus();
-  }, 100); // Set timeout to prevent problem with visibility modal opening animation
-}
-
 // Modal Profile edit open handler
 function openProfileEditModal() {
   formProfileEditUsername.value = profileUserName.textContent;
   formProfileEditAbout.value = profileAbout.textContent;
-  modalProfileEdit.classList.add('modal_opened');
+
+  openModal(modalProfileEdit);
 
   focusOn(formProfileEditUsername);
-};
-
-// Modal open handler
-function openModal(modal) {
-  modal.classList.add('modal_opened');
-};
-
-// Modal close handler
-function closeModal(evt) {
-  evt.target.closest('.modal').classList.remove('modal_opened');
 };
 
 // Modal Card add open handler
 function openCardAddModal() {
   formCardAddImgTitle.value = '';
   formCardAddImgUrl.value = '';
+
   openModal(modalCardAdd);
 
   focusOn(formCardAddImgTitle);
 };
-
-// Add close handler to close buttons
-function addCloseHandlerTo(items) {
-  for (let item of items) {
-    const closeBtn = item.querySelector('.modal__close');
-    addClickEventTo(closeBtn, closeModal);
-  }
-}
 
 // Save info from profile edit form inputs to profile content handler
 function saveProfileInfo(evt) {
