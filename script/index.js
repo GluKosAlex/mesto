@@ -1,30 +1,3 @@
-const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
-
 // Profile search
 const profileInfo = document.querySelector('.profile');
 const profileUserName = profileInfo.querySelector('.profile__username');
@@ -65,8 +38,8 @@ function addClickEventTo(target, handler) {
   target.addEventListener('click', handler);
 }
 
-// Card render handler
-function renderCard({name, link}) {
+// Card create handler
+function createCard({name, link}) {
   const card = cardTemplate.cloneNode(true);
   const cardImage = card.querySelector('.element__image');
   const cardTitle = card.querySelector('.element__title');
@@ -87,18 +60,33 @@ function renderCard({name, link}) {
   });
 
   addClickEventTo(cardImage, () => {
-    openImageModal();
     image.src = cardImage.src;
     image.alt = cardImage.alt;
     imageTitle.textContent = cardTitle.textContent;
+
+    openModal(modalImage);
   });
 
-  cards.prepend(card);
+  return card;
 };
+
+// Card render handler
+function renderCard(card) {
+  cards.prepend(createCard(card));
+}
 
 // Cards from array render handler
 function renderCardsFromArray(arr) {
-  arr.forEach(renderCard);
+  for (let item of arr) {
+    renderCard(item);
+  };
+};
+
+// Focus on input handler
+function focusOn(item) {
+  setTimeout(() => {
+    item.focus();
+  }, 100); // Set timeout to prevent problem with visibility modal opening animation
 }
 
 // Modal Profile edit open handler
@@ -106,29 +94,27 @@ function openProfileEditModal() {
   formProfileEditUsername.value = profileUserName.textContent;
   formProfileEditAbout.value = profileAbout.textContent;
   modalProfileEdit.classList.add('modal_opened');
-  setTimeout(() => {
-    formProfileEditUsername.focus(); // Focus on username field after modal open
-  }, 100); // Set timeout to prevent problem with visibility animation
+
+  focusOn(formProfileEditUsername);
+};
+
+// Modal open handler
+function openModal(modal) {
+  modal.classList.add('modal_opened');
+};
+
+// Modal close handler
+function closeModal(evt) {
+  evt.target.closest('.modal').classList.remove('modal_opened');
 };
 
 // Modal Card add open handler
 function openCardAddModal() {
   formCardAddImgTitle.value = '';
   formCardAddImgUrl.value = '';
-  modalCardAdd.classList.add('modal_opened');
-  setTimeout(() => {
-    formCardAddImgTitle.focus(); // Focus on image title field after modal open
-  }, 100); // Set timeout to prevent problem with visibility animation
-};
+  openModal(modalCardAdd);
 
-// Modal Image open handler
-function openImageModal() {
-  modalImage.classList.add('modal_opened');
-};
-
-// Modal close handler
-function closeModal(evt) {
-  evt.target.closest('.modal').classList.remove('modal_opened');
+  focusOn(formCardAddImgTitle);
 };
 
 // Add close handler to close buttons
