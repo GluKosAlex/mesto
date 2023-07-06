@@ -1,5 +1,7 @@
 .form__button {
-  margin-top: 45px;
+  box-sizing: border-box;
+
+  margin-top: 16px;
   padding: 0;
 
   line-height: 46px;
@@ -10,7 +12,6 @@
   cursor: pointer;
 }
 
-
 .form__button:hover,
 .form__button:focus {
   outline: 0;
@@ -19,7 +20,7 @@
 
 @media screen and (min-width: 619px) {
   .form__button {
-    margin-top: 48px;
+    margin-top: 19px;
 
     font-size: 18px;
     line-height: 50px;
