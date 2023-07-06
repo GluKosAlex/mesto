@@ -33,9 +33,10 @@ const cardTemplate = document.querySelector('#element-template').content;
 // Cards list search
 const cards = document.querySelector('.elements');
 
-// Add click event to target node
+// Add mousedown event to target node
 function addClickEventTo(target, handler) {
-  target.addEventListener('click', handler);
+  // 'mousedown' prevents closing modal on releasing btn after selecting text when the cursor stands on the modal overlay
+  target.addEventListener('mousedown', handler);
 }
 
 // Modal open handler
@@ -45,14 +46,18 @@ function openModal(modal) {
 
 // Modal close handler
 function closeModal(evt) {
-  evt.target.closest('.modal').classList.remove('modal_opened');
+  if (evt.target === evt.currentTarget || evt.key === 'Escape') {
+    evt.target.closest('.modal').classList.remove('modal_opened');
+  }
 };
 
-// Add close handler to close buttons
+// Add close handler to close buttons, modal overlay and Esc
 function addCloseHandlerTo(items) {
   for (let item of items) {
     const closeBtn = item.querySelector('.modal__close');
     addClickEventTo(closeBtn, closeModal);
+    addClickEventTo(item, closeModal);
+    item.addEventListener('keydown', closeModal)
   }
 }
 
@@ -159,7 +164,7 @@ formProfileEdit.addEventListener('submit', saveProfileInfo);
 // Card add handle
 formCardAdd.addEventListener('submit', saveCardInfo);
 
-// Add close handler to close buttons of modal windows
+// Add close handler to close buttons, overlays and Esc of modal windows
 addCloseHandlerTo(modals);
 
 // Modal Profile edit open handle
