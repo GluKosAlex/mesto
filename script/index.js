@@ -37,7 +37,7 @@ const cards = document.querySelector('.elements');
 function addClickEventTo(target, handler) {
   // 'mousedown' prevents closing modal on releasing btn after selecting text when the cursor stands on the modal overlay
   target.addEventListener('mousedown', handler);
-}
+};
 
 // Modal open handler
 function openModal(modal) {
@@ -46,9 +46,21 @@ function openModal(modal) {
 
 // Modal close handler
 function closeModal(evt) {
-  if (evt.target === evt.currentTarget || evt.key === 'Escape') {
-    evt.target.closest('.modal').classList.remove('modal_opened');
-  }
+  const modal = evt.target.closest('.modal');
+
+  modal.classList.remove('modal_opened');
+
+  //Solving issue with error message and input decoration save after closing modal
+  const inputErrorList = modal.querySelectorAll('.form__input-error');
+  inputErrorList.forEach(errorElement => {
+    errorElement.classList.remove('form__input-error_visible');
+    errorElement.textContent = '';
+  });
+
+  const inputList = modal.querySelectorAll('.form__text-input');
+  inputList.forEach(inputElement => {
+    inputElement.classList.remove('form__text-input_type_error');
+  });
 };
 
 // Add close handler to close buttons, modal overlay and Esc
@@ -56,17 +68,25 @@ function addCloseHandlerTo(items) {
   for (let item of items) {
     const closeBtn = item.querySelector('.modal__close');
     addClickEventTo(closeBtn, closeModal);
-    addClickEventTo(item, closeModal);
-    item.addEventListener('keydown', closeModal)
-  }
-}
+    addClickEventTo(item, (evt) => {
+      if (evt.target === evt.currentTarget) {
+        closeModal(evt);
+      };
+    });
+    item.addEventListener('keydown', (evt) => {
+      if (evt.key === 'Escape') {
+        closeModal(evt);
+      };
+    });
+  };
+};
 
 // Focus on input handler
 function focusOn(item) {
   setTimeout(() => {
     item.focus();
   }, 100); // Set timeout to prevent problem with visibility modal opening animation
-}
+};
 
 // Card create handler
 function createCard({name, link}) {
@@ -81,7 +101,7 @@ function createCard({name, link}) {
   cardImage.alt = `Фото достопримечательностей с места: ${name}`;
 
   addClickEventTo(cardLikeButton, () => {
-    cardLikeButton.classList.toggle('element__like_active')
+    cardLikeButton.classList.toggle('element__like_active');
   });
 
   addClickEventTo(cardDeleteButton, () => {
@@ -103,7 +123,7 @@ function createCard({name, link}) {
 // Card render handler
 function renderCard(card) {
   cards.prepend(createCard(card));
-}
+};
 
 // Cards from array render handler
 function renderCardsFromArray(arr) {
@@ -134,8 +154,6 @@ function openCardAddModal() {
 
 // Save info from profile edit form inputs to profile content handler
 function saveProfileInfo(evt) {
-  evt.preventDefault(); // Prevent form sending
-
   profileUserName.textContent = formProfileEditUsername.value;
   profileAbout.textContent = formProfileEditAbout.value;
 
@@ -144,9 +162,7 @@ function saveProfileInfo(evt) {
 
 // Save info from card add form inputs handler
 function saveCardInfo(evt) {
-  evt.preventDefault(); // Prevent form sending
   const newCardInfo = {};
-
   newCardInfo.name = formCardAddImgTitle.value;
   newCardInfo.link = formCardAddImgUrl.value;
 

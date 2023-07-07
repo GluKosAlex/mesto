@@ -4,3 +4,7 @@
   color: var(--main-bg-color);
   opacity: .2;
 }
+
+.form__button_disabled:hover {
+  background-color: transparent;
+}
