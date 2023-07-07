@@ -4,7 +4,7 @@ const profileUserName = profileInfo.querySelector('.profile__username');
 const profileAbout = profileInfo.querySelector('.profile__about');
 
 // Modal windows search
-const modals = document.querySelectorAll('.modal');
+//const modals = document.querySelectorAll('.modal');
 const modalProfileEdit = document.querySelector('.modal_type_profile-edit');
 const modalCardAdd = document.querySelector('.modal_type_card-add');
 const modalImage = document.querySelector('.modal_type_image');
@@ -42,7 +42,24 @@ function addClickEventTo(target, handler) {
 // Modal open handler
 function openModal(modal) {
   modal.classList.add('modal_opened');
+  modal.addEventListener('keydown', coseModalByEscHandler);
+  addCloseHandlerTo(modal);
 };
+
+// Clean input error messages
+function cleanInputError(item) {
+
+  const inputErrorList = item.querySelectorAll('.form__input-error');
+  inputErrorList.forEach(errorElement => {
+    errorElement.classList.remove('form__input-error_visible');
+    errorElement.textContent = '';
+  });
+
+  const inputList = item.querySelectorAll('.form__text-input');
+  inputList.forEach(inputElement => {
+    inputElement.classList.remove('form__text-input_type_error');
+  });
+}
 
 // Modal close handler
 function closeModal(evt) {
@@ -51,34 +68,33 @@ function closeModal(evt) {
   modal.classList.remove('modal_opened');
 
   //Solving issue with error message and input decoration save after closing modal
-  const inputErrorList = modal.querySelectorAll('.form__input-error');
-  inputErrorList.forEach(errorElement => {
-    errorElement.classList.remove('form__input-error_visible');
-    errorElement.textContent = '';
-  });
+  cleanInputError(modal);
 
-  const inputList = modal.querySelectorAll('.form__text-input');
-  inputList.forEach(inputElement => {
-    inputElement.classList.remove('form__text-input_type_error');
-  });
+  // Remove listener by keydown to close modal by press Esc
+  modal.removeEventListener('keydown', coseModalByEscHandler);
+};
+
+// Close modal by click on overlay handler
+function coseModalByOverlayHandler(evt) {
+  if (evt.target === evt.currentTarget) {
+    console.log(evt.target + evt.key);
+    closeModal(evt);
+  };
+};
+
+// Close modal by press Eck handler
+function coseModalByEscHandler(evt) {
+  if (evt.key === 'Escape') {
+    closeModal(evt);
+  };
 };
 
 // Add close handler to close buttons, modal overlay and Esc
-function addCloseHandlerTo(items) {
-  for (let item of items) {
-    const closeBtn = item.querySelector('.modal__close');
-    addClickEventTo(closeBtn, closeModal);
-    addClickEventTo(item, (evt) => {
-      if (evt.target === evt.currentTarget) {
-        closeModal(evt);
-      };
-    });
-    item.addEventListener('keydown', (evt) => {
-      if (evt.key === 'Escape') {
-        closeModal(evt);
-      };
-    });
-  };
+function addCloseHandlerTo(item) {
+  const closeBtn = item.querySelector('.modal__close');
+  addClickEventTo(closeBtn, closeModal);
+  addClickEventTo(item, coseModalByOverlayHandler);
+  //item.addEventListener('keydown', coseModalByEscHandler);
 };
 
 // Focus on input handler
@@ -138,7 +154,6 @@ function openProfileEditModal() {
   formProfileEditAbout.value = profileAbout.textContent;
 
   openModal(modalProfileEdit);
-
   focusOn(formProfileEditUsername);
 };
 
@@ -148,7 +163,6 @@ function openCardAddModal() {
   formCardAddImgUrl.value = '';
 
   openModal(modalCardAdd);
-
   focusOn(formCardAddImgTitle);
 };
 
@@ -179,9 +193,6 @@ formProfileEdit.addEventListener('submit', saveProfileInfo);
 
 // Card add handle
 formCardAdd.addEventListener('submit', saveCardInfo);
-
-// Add close handler to close buttons, overlays and Esc of modal windows
-addCloseHandlerTo(modals);
 
 // Modal Profile edit open handle
 addClickEventTo(btnProfileEdit, openProfileEditModal);
