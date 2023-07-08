@@ -49,6 +49,10 @@ const setEventListeners = (formElement, config) => {
       checkInputValidity(formElement, inputElement, config);
       toggleButtonState(inputList, buttonElement, config);
     });
+    inputElement.addEventListener('change', () => {
+      // Prevents saving data filled only with white spaces string and clear spaces from both sides of the input string
+      inputElement.value = inputElement.value.trim();
+    });
   });
 };
 

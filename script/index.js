@@ -169,7 +169,7 @@ function openCardAddModal() {
 };
 
 // Save info from profile edit form inputs to profile content handler
-function saveProfileInfo(evt) {
+function saveProfileInfo() {
   profileUserName.textContent = formProfileEditUsername.value;
   profileAbout.textContent = formProfileEditAbout.value;
 
