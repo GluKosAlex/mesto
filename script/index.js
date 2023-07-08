@@ -41,8 +41,8 @@ function addClickEventTo(target, handler) {
 
 // Modal open handler
 function openModal(modal) {
+
   modal.classList.add('modal_opened');
-  modal.addEventListener('keydown', coseModalByEscHandler);
   addCloseHandlerTo(modal);
 };
 
@@ -62,9 +62,7 @@ function cleanInputError(item) {
 }
 
 // Modal close handler
-function closeModal(evt) {
-  const modal = evt.target.closest('.modal');
-
+function closeModal(modal) {
   modal.classList.remove('modal_opened');
 
   //Solving issue with error message and input decoration save after closing modal
@@ -77,24 +75,28 @@ function closeModal(evt) {
 // Close modal by click on overlay handler
 function coseModalByOverlayHandler(evt) {
   if (evt.target === evt.currentTarget) {
-    console.log(evt.target + evt.key);
-    closeModal(evt);
+    closeModal(evt.currentTarget);
   };
 };
 
 // Close modal by press Eck handler
-function coseModalByEscHandler(evt) {
+function coseModalByEscHandler(modal, evt) {
+  console.log(evt.target);
   if (evt.key === 'Escape') {
-    closeModal(evt);
+    closeModal(modal);
   };
 };
 
 // Add close handler to close buttons, modal overlay and Esc
 function addCloseHandlerTo(item) {
   const closeBtn = item.querySelector('.modal__close');
-  addClickEventTo(closeBtn, closeModal);
+  addClickEventTo(closeBtn, () => {
+    closeModal(item);
+  });
   addClickEventTo(item, coseModalByOverlayHandler);
-  //item.addEventListener('keydown', coseModalByEscHandler);
+  document.addEventListener('keydown', evt => {
+    coseModalByEscHandler(item, evt);
+  });
 };
 
 // Focus on input handler
@@ -171,18 +173,18 @@ function saveProfileInfo(evt) {
   profileUserName.textContent = formProfileEditUsername.value;
   profileAbout.textContent = formProfileEditAbout.value;
 
-  closeModal(evt); // Close modal after save
+  closeModal(modalProfileEdit); // Close modal after save
 };
 
 // Save info from card add form inputs handler
-function saveCardInfo(evt) {
+function saveCardInfo() {
   const newCardInfo = {};
   newCardInfo.name = formCardAddImgTitle.value;
   newCardInfo.link = formCardAddImgUrl.value;
 
   renderCard(newCardInfo);
 
-  closeModal(evt); // Close modal after save
+  closeModal(modalCardAdd); // Close modal after save
 };
 
 // Render Initial cards
