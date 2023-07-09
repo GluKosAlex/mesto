@@ -25,7 +25,7 @@ const initialCards = [
   }
 ];
 
-const config = {
+const VALIDATION_CONFIG = {
   formSelector: '.form',
   inputSelector: '.form__text-input',
   submitButtonSelector: '.form__button',

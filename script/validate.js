@@ -28,14 +28,24 @@ const hasInvalidInput = (inputList) => {
   });
 };
 
+// Enable button handler
+const disableButton = (btn, config) => {
+  btn.classList.add(config.inactiveButtonClass);
+  btn.disabled = true;
+};
+
+// Disable button handler
+const enableButton = (btn, config) => {
+  btn.classList.remove(config.inactiveButtonClass);
+  btn.disabled = false;
+};
+
 // Toggle button to disabled state
 const toggleButtonState = (inputList, buttonElement, config) => {
   if (hasInvalidInput(inputList)) {
-    buttonElement.classList.add(config.inactiveButtonClass);
-    buttonElement.disabled = true;
+    disableButton(buttonElement, config);
   } else {
-    buttonElement.classList.remove(config.inactiveButtonClass);
-    buttonElement.disabled = false;
+    enableButton(buttonElement, config);
   };
 };
 
@@ -67,4 +77,4 @@ const enableValidation = (config) => {
   });
 };
 
-enableValidation(config);
+enableValidation(VALIDATION_CONFIG);

@@ -2,4 +2,7 @@
   height: 282px;
   object-fit: cover;
   cursor: zoom-in;
+
+  color: var(--main-text-color);
+  background-color: var(--main-text-mid-color);
 }

@@ -21,11 +21,14 @@ const imageTitle = modalImage.querySelector('.modal__image-title');
 const formProfileEdit = modalProfileEdit.querySelector('.form');
 const formProfileEditUsername = formProfileEdit.querySelector('.form__text-input_data_username');
 const formProfileEditAbout = formProfileEdit.querySelector('.form__text-input_data_about');
+const formProfileEditSubmitBtn = formProfileEdit.querySelector('.form__button');
+
 
 // Card add form search
 const formCardAdd = modalCardAdd.querySelector('.form');
 const formCardAddImgTitle = formCardAdd.querySelector('.form__text-input_data_img-title');
 const formCardAddImgUrl = formCardAdd.querySelector('.form__text-input_data_img-url');
+const formCardAddSubmitBtn = formCardAdd.querySelector('.form__button');
 
 // Template search
 const cardTemplate = document.querySelector('#element-template').content;
@@ -49,7 +52,7 @@ function focusOn(item) {
 // Modal open handler
 function openModal(modal) {
   modal.classList.add('modal_opened');
-  addCloseHandlerTo(modal);
+  document.addEventListener('keydown', coseModalByEscHandler);
 };
 
 // Modal Profile edit open handler
@@ -57,14 +60,17 @@ function openProfileEditModal() {
   formProfileEditUsername.value = profileUserName.textContent;
   formProfileEditAbout.value = profileAbout.textContent;
 
+  disableButton(formProfileEditSubmitBtn, VALIDATION_CONFIG);
+
   openModal(modalProfileEdit);
   focusOn(formProfileEditUsername);
 };
 
 // Modal Card add open handler
 function openCardAddModal() {
-  formCardAddImgTitle.value = '';
-  formCardAddImgUrl.value = '';
+  formCardAdd.reset();
+
+  disableButton(formCardAddSubmitBtn, VALIDATION_CONFIG);
 
   openModal(modalCardAdd);
   focusOn(formCardAddImgTitle);
@@ -84,7 +90,7 @@ function closeModal(modal) {
 // Close modal by press Eck handler
 function coseModalByEscHandler(evt) {
   if (evt.key === 'Escape') {
-    const [modal] = Array.from(modals).filter(item => item.classList.contains('modal_opened'));
+    const modal = Array.from(modals).find(item => item.classList.contains('modal_opened'));
     closeModal(modal);
   };
 };
@@ -96,28 +102,28 @@ function coseModalByOverlayHandler(evt) {
   };
 };
 
-// Add close handler to close buttons, modal overlay and Esc
+// Add close handler to close buttons and modal overlay
 function addCloseHandlerTo(item) {
+  // console.log(item);
   const closeBtn = item.querySelector('.modal__close');
   addClickEventTo(closeBtn, () => {
     closeModal(item);
   });
   addClickEventTo(item, coseModalByOverlayHandler);
-  document.addEventListener('keydown', coseModalByEscHandler);
+};
+
+// Add close handlers to modals handler
+function addCloseHandlersTo(items) {
+  items.forEach(item => {
+    addCloseHandlerTo(item);
+  });
 };
 
 // Clean input error messages
 function cleanInputError(item) {
-
-  const inputErrorList = item.querySelectorAll('.form__input-error');
-  inputErrorList.forEach(errorElement => {
-    errorElement.classList.remove('form__input-error_visible');
-    errorElement.textContent = '';
-  });
-
   const inputList = item.querySelectorAll('.form__text-input');
   inputList.forEach(inputElement => {
-    inputElement.classList.remove('form__text-input_type_error');
+    hideInputError(item, inputElement, VALIDATION_CONFIG);
   });
 }
 
@@ -198,3 +204,6 @@ addClickEventTo(btnProfileEdit, openProfileEditModal);
 
 // Modal Card add open handle
 addClickEventTo(btnCardAdd, openCardAddModal);
+
+// Add close handlers to modals close buttons and overlays
+addCloseHandlersTo(modals);
