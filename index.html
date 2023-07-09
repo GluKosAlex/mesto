@@ -46,7 +46,7 @@
       <div class="modal modal_type_profile-edit">
         <div class="modal__content modal__content_type_form">
           <h2 class="modal__title">Редактировать профиль</h2>
-          <form class="form" action="#" name="profile-edit-form" method="post">
+          <form class="form" action="#" name="profile-edit-form" method="post" novalidate>
             <input id="username" class="form__text-input form__text-input_data_username" type="text" name="username" minlength="2" maxlength="40" placeholder="Имя" required>
             <span class="form__input-error username-error"></span>
             <input id="about" class="form__text-input form__text-input_data_about" type="text" name="about" minlength="2" maxlength="200" placeholder="О себе" required>
@@ -60,7 +60,7 @@
       <div class="modal modal_type_card-add">
         <div class="modal__content modal__content_type_form">
           <h2 class="modal__title">Новое место</h2>
-          <form class="form" action="#" name="card-add-form" method="post">
+          <form class="form" action="#" name="card-add-form" method="post" novalidate>
             <input id="img-title" class="form__text-input form__text-input_data_img-title" type="text" name="img-title" placeholder="Название" minlength="2" maxlength="30" required>
             <span class="form__input-error img-title-error"></span>
             <input id="img-url" class="form__text-input form__text-input_data_img-url" type="url" name="img-url" placeholder="Ссылка на картинку" required>

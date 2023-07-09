@@ -4,7 +4,7 @@ const profileUserName = profileInfo.querySelector('.profile__username');
 const profileAbout = profileInfo.querySelector('.profile__about');
 
 // Modal windows search
-//const modals = document.querySelectorAll('.modal');
+const modals = document.querySelectorAll('.modal');
 const modalProfileEdit = document.querySelector('.modal_type_profile-edit');
 const modalCardAdd = document.querySelector('.modal_type_card-add');
 const modalImage = document.querySelector('.modal_type_image');
@@ -41,9 +41,44 @@ function addClickEventTo(target, handler) {
 
 // Modal open handler
 function openModal(modal) {
-
   modal.classList.add('modal_opened');
   addCloseHandlerTo(modal);
+};
+
+// Modal close handler
+function closeModal(modal) {
+  modal.classList.remove('modal_opened');
+
+  //Solving issue with error message and input decoration save after closing modal
+  cleanInputError(modal);
+
+  // Remove listener by keydown to close modal by press Esc
+  document.removeEventListener('keydown', coseModalByEscHandler);
+};
+
+// Close modal by press Eck handler
+function coseModalByEscHandler(evt) {
+  if (evt.key === 'Escape') {
+    const [modal] = Array.from(modals).filter(item => item.classList.contains('modal_opened'));
+    closeModal(modal);
+  };
+};
+
+// Focus on input handler
+function focusOn(item) {
+  setTimeout(() => {
+    item.focus();
+  }, 100); // Set timeout to prevent problem with visibility modal opening animation
+};
+
+// Add close handler to close buttons, modal overlay and Esc
+function addCloseHandlerTo(item) {
+  const closeBtn = item.querySelector('.modal__close');
+  addClickEventTo(closeBtn, () => {
+    closeModal(item);
+  });
+  addClickEventTo(item, coseModalByOverlayHandler);
+  document.addEventListener('keydown', coseModalByEscHandler);
 };
 
 // Clean input error messages
@@ -61,49 +96,11 @@ function cleanInputError(item) {
   });
 }
 
-// Modal close handler
-function closeModal(modal) {
-  modal.classList.remove('modal_opened');
-
-  //Solving issue with error message and input decoration save after closing modal
-  cleanInputError(modal);
-
-  // Remove listener by keydown to close modal by press Esc
-  modal.removeEventListener('keydown', coseModalByEscHandler);
-};
-
 // Close modal by click on overlay handler
 function coseModalByOverlayHandler(evt) {
   if (evt.target === evt.currentTarget) {
     closeModal(evt.currentTarget);
   };
-};
-
-// Close modal by press Eck handler
-function coseModalByEscHandler(modal, evt) {
-  console.log(evt.target);
-  if (evt.key === 'Escape') {
-    closeModal(modal);
-  };
-};
-
-// Add close handler to close buttons, modal overlay and Esc
-function addCloseHandlerTo(item) {
-  const closeBtn = item.querySelector('.modal__close');
-  addClickEventTo(closeBtn, () => {
-    closeModal(item);
-  });
-  addClickEventTo(item, coseModalByOverlayHandler);
-  document.addEventListener('keydown', evt => {
-    coseModalByEscHandler(item, evt);
-  });
-};
-
-// Focus on input handler
-function focusOn(item) {
-  setTimeout(() => {
-    item.focus();
-  }, 100); // Set timeout to prevent problem with visibility modal opening animation
 };
 
 // Card create handler
