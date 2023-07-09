@@ -39,10 +39,35 @@ function addClickEventTo(target, handler) {
   target.addEventListener('mousedown', handler);
 };
 
+// Focus on input handler
+function focusOn(item) {
+  setTimeout(() => {
+    item.focus();
+  }, 100); // Set timeout to prevent problem with visibility modal opening animation
+};
+
 // Modal open handler
 function openModal(modal) {
   modal.classList.add('modal_opened');
   addCloseHandlerTo(modal);
+};
+
+// Modal Profile edit open handler
+function openProfileEditModal() {
+  formProfileEditUsername.value = profileUserName.textContent;
+  formProfileEditAbout.value = profileAbout.textContent;
+
+  openModal(modalProfileEdit);
+  focusOn(formProfileEditUsername);
+};
+
+// Modal Card add open handler
+function openCardAddModal() {
+  formCardAddImgTitle.value = '';
+  formCardAddImgUrl.value = '';
+
+  openModal(modalCardAdd);
+  focusOn(formCardAddImgTitle);
 };
 
 // Modal close handler
@@ -64,11 +89,11 @@ function coseModalByEscHandler(evt) {
   };
 };
 
-// Focus on input handler
-function focusOn(item) {
-  setTimeout(() => {
-    item.focus();
-  }, 100); // Set timeout to prevent problem with visibility modal opening animation
+// Close modal by click on overlay handler
+function coseModalByOverlayHandler(evt) {
+  if (evt.target === evt.currentTarget) {
+    closeModal(evt.currentTarget);
+  };
 };
 
 // Add close handler to close buttons, modal overlay and Esc
@@ -95,13 +120,6 @@ function cleanInputError(item) {
     inputElement.classList.remove('form__text-input_type_error');
   });
 }
-
-// Close modal by click on overlay handler
-function coseModalByOverlayHandler(evt) {
-  if (evt.target === evt.currentTarget) {
-    closeModal(evt.currentTarget);
-  };
-};
 
 // Card create handler
 function createCard({name, link}) {
@@ -145,24 +163,6 @@ function renderCardsFromArray(arr) {
   for (let item of arr) {
     renderCard(item);
   };
-};
-
-// Modal Profile edit open handler
-function openProfileEditModal() {
-  formProfileEditUsername.value = profileUserName.textContent;
-  formProfileEditAbout.value = profileAbout.textContent;
-
-  openModal(modalProfileEdit);
-  focusOn(formProfileEditUsername);
-};
-
-// Modal Card add open handler
-function openCardAddModal() {
-  formCardAddImgTitle.value = '';
-  formCardAddImgUrl.value = '';
-
-  openModal(modalCardAdd);
-  focusOn(formCardAddImgTitle);
 };
 
 // Save info from profile edit form inputs to profile content handler
